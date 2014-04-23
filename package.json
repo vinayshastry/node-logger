@@ -1,0 +1,21 @@
+{
+  "name": "node-logger",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.8",
+    "express-resource": "1.0.0",
+    "winston": "~0.7.2",
+    "q": "~1.0.0",
+    "string": "~1.8.0",
+    "fn.js": "0.6.1"
+  },
+  "devDependencies": {
+    "grunt-mocha-test": "~0.8.2",
+    "grunt": "~0.4.2",
+    "mocha": "~1.17.1",
+    "chai": "~1.8.1",
+    "supertest": "~0.9.0",
+    "nock": "~0.27.2"
+  }
+}
