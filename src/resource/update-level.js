@@ -11,6 +11,7 @@ module.exports = function(logger) {
             Object.keys(logger.transports).forEach(function(transport) {
                 logger.transports[transport].level = new_level;
             });
+            logger.level = new_level;
             return res.send(200);
         } else {
             return res.send(422);
