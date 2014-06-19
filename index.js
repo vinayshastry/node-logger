@@ -1,3 +1,6 @@
+function correlationId(req) {
+    return (req.headers && req.headers['correlation id']) ? req.headers['correlation id'] : "";
+}
 module.exports.create=function(logger) {
     return function(req, res, next){
         var rEnd = res.end;
@@ -6,7 +9,8 @@ module.exports.create=function(logger) {
         var req_msg = {
             method: req.method,
             url: req.url,
-            queryParams: req['query']
+            queryParams: req['query'],
+            'Correlation Id': correlationId(req)
         }
         logger.info('request: ', req_msg);
 
@@ -23,6 +27,7 @@ module.exports.create=function(logger) {
                 method: req.method,
                 url: req.url,
                 status: res.statusCode,
+                'Correlation Id': correlationId(req),
                 time: ((new Date) - req._rlStartTime) + 'ms'
             }
             logger.info('response: ', res_msg);
