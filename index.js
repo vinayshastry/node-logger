@@ -7,6 +7,7 @@ module.exports.create=function(logger) {
         req._rlStartTime = (new Date);
 
         var req_msg = {
+            date: req._rlStartTime.toISOString(),
             method: req.method,
             url: req.url,
             queryParams: req['query'],
@@ -24,11 +25,12 @@ module.exports.create=function(logger) {
             }
 
             var res_msg = {
+                date: req._rlStartTime.toISOString(),
                 method: req.method,
                 url: req.url,
                 status: res.statusCode,
                 'Correlation Id': correlationId(req),
-                time: ((new Date) - req._rlStartTime) + 'ms'
+                took: ((new Date) - req._rlStartTime) + 'ms'
             }
             logger.info('response: ', res_msg);
 
