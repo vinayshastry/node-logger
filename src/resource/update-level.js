@@ -2,11 +2,11 @@
 module.exports = function(logger) {
     /**
      * PUT /logger
-     * {log_level: "debug"}
+     * {level: "debug"}
      * Cookie: auth-token=validToken
      */
     return function(req, res) {
-        var new_level = req.body.log_level;
+        var new_level = req.body.level;
         if(new_level) {
             Object.keys(logger.transports).forEach(function(transport) {
                 logger.transports[transport].level = new_level;
