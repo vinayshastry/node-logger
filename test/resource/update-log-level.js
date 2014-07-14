@@ -24,7 +24,7 @@ describe("update logger level test", function(){
                 request(app)
                     .put("/logger")
                     .send({
-                        log_level: "debug"
+                        level: "debug"
                     })
                     .set("Cookie", ["auth-token=validToken"])
                     .expect(200)
